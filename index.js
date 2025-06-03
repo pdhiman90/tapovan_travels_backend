@@ -4,8 +4,18 @@ import dotenv from "dotenv";
 import connectDB from "./Middlewares/dbconnection.js";
 import authRoute from "./routes/auth.route.js";
 
+
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://tapovan-travel-front.vercel.app',
+];
 const app = express();
-app.use(cors('https://tapovan-travel-front.vercel.app/));
+app.use(cors(
+  {
+  origin: allowedOrigins,
+  credentials: true,
+}
+));
 dotenv.config();
 connectDB();
 
