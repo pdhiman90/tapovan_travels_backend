@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import connectDB from "./Middlewares/dbconnection.js";
-import authRoute from "./Routes/auth.route.js";
+import authRoute from "./routes/auth.route.js";
 
 const app = express();
 app.use(cors());
