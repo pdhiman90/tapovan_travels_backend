@@ -5,7 +5,7 @@ import connectDB from "./Middlewares/dbconnection.js";
 import authRoute from "./routes/auth.route.js";
 
 const app = express();
-app.use(cors());
+app.use(cors('https://tapovan-travel-front.vercel.app/));
 dotenv.config();
 connectDB();
 
