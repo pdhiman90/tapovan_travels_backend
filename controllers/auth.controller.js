@@ -1,4 +1,4 @@
-import authservice from "../Services/auth.service.js";
+import authservice from "../Services/authService.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
