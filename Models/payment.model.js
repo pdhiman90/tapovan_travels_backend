@@ -1,41 +1,28 @@
 import mongoose from "mongoose";
 
 const paymentSchema = new mongoose.Schema({
-    userId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "User",
-        required: true
-    },
-    orderId: {
-        type: String,
-        required: true
-    },
-    paymentId: {
-        type: String,
-        required: true
-    },
-    amount: {
-        type: Number,
-        required: true
-    },
-    currency: {
-        type: String,
-        required: true
-    },
-    status: {
-        type: String,
-        required: true
-    },
-    paymentDate: {
-        type: Date,
-        required: true
-    },
-    paymentMethod: {
-        type: String,
-        required: true
-    },
-    
-    
-},{timestamps:true})
+  name: String,
+  mobile: String,
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User", // assuming your user model is named 'User'
+    required: true,
+  },
+  amount: {
+    type: Number,
+    default: 1500
+  },
+  status: {
+    type: String,
+    enum: ['pending', 'success', 'failed'],
+    default: 'pending'
+  },
+  upiLink: String,
+  createdAt: {
+    type: Date,
+    default: Date.now
+  }
+});
 
-export default mongoose.model("Payment",paymentSchema)
+ const Payment = mongoose.model("Payment", paymentSchema);
+ export default Payment;
